@@ -19,8 +19,8 @@ function App() {
 
   useEffect(() => {
       const fetchUserpoint = async () => {
-      const params = {name: Username};
-      const query = new URLSearchParams(params.toString());
+      const params:any = {name: Username};
+      const query = new URLSearchParams(params);
       const data = await fetch(`http://localhost:8081/user/userpoint?${query}`);
       const json = await data.json();
       sessionStorage.setItem('Userpoint', json.point);
