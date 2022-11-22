@@ -61,7 +61,7 @@ function LoginForm() {
   
     //バリデーションチェック
     const validate = (values:any) => {
-      let errors: {username: string; mailAddress: string; password: string} = {username: "", mailAddress: "", password: ""};
+      let errors:any = {};
       //半角英数字のみ(空文字OK)
       const regex =
         /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
