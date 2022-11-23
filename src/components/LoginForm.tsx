@@ -3,10 +3,6 @@ import "../LoginForm.css"
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"
-
-
-
 
 function LoginForm() {
     const initialValues = { username: "", mailAddress: "", password: "" };
@@ -23,7 +19,7 @@ function LoginForm() {
     };
 
     const onSubmit = (name:string, email:string, password:string) => {
-        axios.post("http://localhost:8081/user/login", {
+        axios.post("https://hackathon-4y7j2tipqq-uc.a.run.app/user/login", {
           name: name,
           email: email,
           password: password,
@@ -61,7 +57,7 @@ function LoginForm() {
   
     //バリデーションチェック
     const validate = (values:any) => {
-      let errors:any = {};
+      const errors:any = {}
       //半角英数字のみ(空文字OK)
       const regex =
         /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;

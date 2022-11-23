@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useEffect } from "react";
 import axios from "axios";
 import "../User.css";
 import Sidebar from "./Sidebar";
@@ -24,7 +23,7 @@ function User(props:Props) {
 
     
     const onSubmit = (sendername:string | null, receivername:string, point:number, message:string) => {
-        axios.post("http://localhost:8081/user/postcontribution", {
+        axios.post("https://hackathon-4y7j2tipqq-uc.a.run.app/user/postcontribution", {
           sendername: sendername,
           receivername: receivername,
           point: point,

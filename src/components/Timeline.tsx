@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import "../Timeline.css";
-import { Link } from "react-router-dom";
 import Icon from "../images/dog.png";
 import Sidebar from "./Sidebar";
 
@@ -30,7 +29,7 @@ function Timeline(props:Props) {
         console.log(id);
 
         const fetchData3 = async () => {
-            const data = await fetch(`http://localhost:8081/user/detailcontribution?${query}`);
+            const data = await fetch(`https://hackathon-4y7j2tipqq-uc.a.run.app/user/detailcontribution?${query}`);
             const json = await data.json();
             setData3(json);
           }
@@ -47,7 +46,7 @@ function Timeline(props:Props) {
   }
   
   const onSubmit = (id:string, receivername:string, point:number, message:string) => {
-    axios.post("http://localhost:8081/user/edit", {
+    axios.post("https://hackathon-4y7j2tipqq-uc.a.run.app/user/edit", {
       id: id,
       receivername: receivername,
       point: point,
@@ -59,7 +58,7 @@ function Timeline(props:Props) {
 
   const onSubmitDelete = (id:string, receivername:string) => {
     closeModal()
-    axios.post("http://localhost:8081/user/delete", {
+    axios.post("https://hackathon-4y7j2tipqq-uc.a.run.app/user/delete", {
       id: id,
       receivername: receivername
     }).then(response => {
@@ -179,13 +178,8 @@ function Timeline(props:Props) {
       <></>// showFlagがfalseの場合はModalは表示しない
     )}
 
-
-
-
   </div>
   </div>
 
-    
-  
     )};
     export default Timeline;

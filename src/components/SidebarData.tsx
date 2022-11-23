@@ -8,21 +8,21 @@ export const SidebarData = [
     {
         title: "ホーム",
         icon: <HomeIcon/>,
-        link: "./home"
+        link: "/home"
     },
     {
         title: "メンバー",
         icon: <PeopleAltIcon/>,
-        link: "./member"
+        link: "/member"
     },
     {
         title: "タイムライン",
         icon: <TimelineIcon/>,
-        link: "./timeline"
+        link: "/timeline"
     },
     {
         title: "ログイン画面",
         icon: <LogoutIcon/>,
-        link: "./login"
+        link: "/login"
     }
 ]
