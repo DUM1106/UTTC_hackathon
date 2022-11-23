@@ -71,23 +71,25 @@ function User(props:Props) {
       </div>
       <Sidebar/>
     <div className = "user">
-    <ul>
+          <ul>
             <li><img className = "icon2" src={Icon}/> {props.Username}<br/>
               <div className = "point">{"ポイント: " + props.Userpoint}</div>
             </li>
           </ul>
-          {(() => {
-          const items = [<></>];
-          for (let i = 0; i < props.len; i++) {
-            if (props.Data[i].name != props.Username) {
-              items.push(<li><img className = "icon2" src={Icon}/> {props.Data[i].name}<br/>
-              <div className = "point">{"ポイント: " + props.Data[i].point}</div>
-              <button className="contributionSend" onClick = {() => openModal(props.Data[i].name)}>貢献を送る</button></li>)
+          <ul>
+            {props.Data.map((value, key) => {
+              if (props.Username != value.name) {
+                return (
+                  <li key={key}><img className = "icon2" src={Icon}/> {value.name}<br/>
+              <div className = "point">{"ポイント: " + value.point}</div>
+              <button className="contributionSend" onClick = {() => openModal(value.name)}>貢献を送る</button></li>
+                 )
+              } 
             }
-          }
-          return <ul>{items}</ul>;
-      })()}
-          </div>
+          )
+        }
+          </ul>
+    </div>
 
      <>
     {Showform ? ( // showFlagがtrueだったらModalを表示する

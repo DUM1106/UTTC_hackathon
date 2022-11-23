@@ -9,6 +9,7 @@ import Sidebar from "./Sidebar";
 type Props = {
   len: number
   Data: {"id":string; "sender_name": string; "receiver_name": string}[]
+  Username: string | null
 }
 
 function Timeline(props:Props) {
@@ -102,17 +103,30 @@ function Timeline(props:Props) {
     <div className="timeline">
     <div className="assist">
     </div>
-      <div className="summary">
-          {(() => {
-          const items = [<></>];
-          for (let i = props.len - 1; i >= 0; i--) { 
-              items.push(<li><img className = "icon" src={Icon}/>{props.Data[i].sender_name + " → " }<img className = "icon" src={Icon}/>{props.Data[i].receiver_name}<br></br>
-              <button className="detailButton" onClick = {() => submit(props.Data[i].id)}>詳細</button>
-              <button className="detailButton" onClick = {() => edit(props.Data[i].id, props.Data[i].receiver_name)}>編集</button>
-              </li>)
-          }
-          return <ul>{items}</ul>;
-          })()}
+       <div>
+       <ul>
+            {props.Data.slice(0).reverse().map((value, key) => {
+              if (props.Username == value.sender_name) {
+                return (
+                  <li key={key} >
+                    <img className = "icon" src={Icon}/>{value.sender_name + " → " }<img className = "icon" src={Icon}/>{value.receiver_name}<br></br>
+                    <button className="detailButton" onClick = {() => submit(value.id)}>詳細</button>
+                    <button className="detailButton" onClick = {() => edit(value.id, value.receiver_name)}>編集</button>
+                  </li>
+                      )
+              } else {
+                return (
+                  <li key={key} >
+                    <img className = "icon" src={Icon}/>{value.sender_name + " → " }<img className = "icon" src={Icon}/>{value.receiver_name}<br></br>
+                    <button className="detailButton" onClick = {() => submit(value.id)}>詳細</button>
+                  </li>
+                )
+
+              }
+                
+            })}
+
+        </ul>
        </div>
 
       {showModal ? ( // showFlagがtrueだったらModalを表示する

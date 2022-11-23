@@ -6,7 +6,7 @@ function SidebarIcon() {
   return (
     <div className="SidebarIcon">
         <img src={Icon}/>
-        <p>Assist</p>
+        <p>{sessionStorage.getItem('accountName')}</p>
     </div>
   )
 }
