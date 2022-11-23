@@ -15,3 +15,12 @@
     text-align: center;
     margin-top: 20px;
 }
+
+.SidebarIcon .accountPoint {
+    color: plum;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: -1px;
+}
